@@ -1,0 +1,21 @@
+from flask import Flask, render_template, request, redirect, url_for
+
+# 1. Load Environment Variables from the .env file
+load_dotenv()
+
+# 2. Database Connection using Environment Variables (Secrets are hidden)
+db = msq.connect(
+    # Get values from your secure .env file
+    host=os.getenv("DB_HOST"),        
+    user=os.getenv("DB_USER"),        
+    password=os.getenv("DB_PASSWORD"), 
+    database="login"
+)
+
+
+db = msq.connect(
+    host="localhost",
+    user="root",
+    password="bajrangbali1",   # your MySQL password
+    database="login"
+)

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+
+            /* Your background image from static folder */
+            background-image: url("{{ url_for('static', filename='imag/1.jpg') }}");
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: 12px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .input-box {
+            margin-bottom: 15px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #357ac9;
+        }
+
+        .create-link {
+            margin-top: 15px;
+        }
+
+        .create-link a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h2>Login</h2>
+
+        <form action="/login" method="POST">
+
+            <div class="input-box">
+                <input type="text" name="uname" placeholder="Username">
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="pwd" placeholder="Password">
+            </div>
+
+            <button class="btn">Login</button>
+
+            <div class="create-link">
+                <a href="/create">Create Account</a>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
