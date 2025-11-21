@@ -11,7 +11,8 @@ load_dotenv()
 db = msq.connect(
     # Get values from your secure .env file
     host=os.getenv("DB_HOST"),        
-    user=os.getenv("DB_USER"),        
+    user=os.getenv("DB_USER"), 
+    port=os.getenv("DB_PORT"),       
     password=os.getenv("DB_PASSWORD"), 
     database=os.getenv("DB_DATABASE")
 )
@@ -57,5 +58,3 @@ def create():
 
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 3306)))
