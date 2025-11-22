@@ -1,4 +1,3 @@
-
 import os
 import mysql.connector as msq 
 from dotenv import load_dotenv
