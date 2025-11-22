@@ -8,12 +8,11 @@ load_dotenv()
 
 # 2. Database Connection using Environment Variables (Secrets are hidden)
 db = msq.connect(
-    # Get values from your secure .env file
-    host=os.getenv("DB_HOST"),        
-    user=os.getenv("DB_USER"), 
-    port=os.getenv("DB_PORT"),       
-    password=os.getenv("DB_PASSWORD"), 
-    database=os.getenv("DB_DATABASE")
+    host=os.getenv("MYSQLHOST"),
+    user=os.getenv("MYSQLUSER"),
+    password=os.getenv("MYSQLPASSWORD"),
+    database=os.getenv("MYSQLDATABASE"),
+    port=int(os.getenv("MYSQLPORT"))
 )
 
 cursor = db.cursor()
