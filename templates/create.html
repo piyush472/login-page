@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CREATE</title>
+    <title>Create Account</title>
 
     <style>
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-
-            /* Your background image from static folder */
             background-image: url("{{ url_for('static', filename='img/BG.jpg') }}");
             background-size: cover;
             background-position: center;
-
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,13 +32,9 @@
         .login-box h2 {
             margin-bottom: 20px;
             color: white;
-            letter-spacing: 1px;
         }
 
-        .input-box {
-            margin-bottom: 15px;
-        }
-
+        .input-box { margin-bottom: 15px; }
         .input-box input {
             width: 100%;
             padding: 10px;
@@ -59,45 +52,51 @@
             font-size: 16px;
             cursor: pointer;
         }
+        .btn:hover { background: #357ac9; }
 
-        .btn:hover {
-            background: #357ac9;
-        }
+        .create-link { margin-top: 15px; }
+        .create-link a { color: white; text-decoration: none; }
 
-        .create-link {
-            margin-top: 15px;
+        /* Message styles */
+        .message {
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-
-        .create-link a {
-            color: white;
-            text-decoration: none;
-        }
+        .success { color: rgb(7, 49, 238); }
+        .error { color: red; }
     </style>
 </head>
 
 <body>
 
     <div class="login-box">
-        <h2>create</h2>
+        <h2>Create Account</h2>
+
+        {% if message %}
+            <p class="message {{ msg_type }}">{{ message }}</p>
+        {% endif %}
 
         <form action="/create" method="POST">
-
             <div class="input-box">
-                <input type="text" name="nm" placeholder="Username">
+                <input type="text" name="nm" placeholder="Username" required>
             </div>
-
             <div class="input-box">
-                <input type="password" name="pwd" placeholder="Password">
+                <input type="password" name="pwd" placeholder="Password" required>
             </div>
-
-            <input type="submit" value="create account">
-
+            <input type="submit" class="btn" value="Create Account">
             <div class="create-link">
-                <a href="/">login Account</a>
+                <a href="/">Login Account</a>
             </div>
-
         </form>
     </div>
+
+    {% if redirect_login %}
+        <script>
+            setTimeout(function(){
+                window.location.href = "/";
+            }, 1000); // redirect after 1 second
+        </script>
+    {% endif %}
 
 </body>
 </html>

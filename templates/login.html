@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">z
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
             height: 100vh;
 
             /* Your background image from static folder */
-            background-image: url("{{ url_for('static', filename='img/BG.jpg') }}");
+            background-image: url("{{ url_for('static', filename='img/3.jpg') }}");
             background-size: cover;
             background-position: center;
 
@@ -72,6 +72,16 @@
             color: white;
             text-decoration: none;
         }
+
+        /* Error message style */
+        .error-msg {
+            color: #ff6b6b;
+            background: rgba(0,0,0,0.3);
+            padding: 8px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -82,15 +92,20 @@
 
         <form action="/" method="POST">
 
+            <!-- Display error if login fails -->
+            {% if error %}
+                <div class="error-msg">{{ error }}</div>
+            {% endif %}
+
             <div class="input-box">
-                <input type="text" name="nm" placeholder="Username">
+                <input type="text" name="nm" placeholder="Username" required>
             </div>
 
             <div class="input-box">
-                <input type="password" name="pwd" placeholder="Password">
+                <input type="password" name="pwd" placeholder="Password" required>
             </div>
 
-            <input type="submit" value="login">
+            <input type="submit" class="btn" value="Login">
 
             <div class="create-link">
                 <a href="/create">Create Account</a>

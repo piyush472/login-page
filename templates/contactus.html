@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: url("/static/img/5.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Navbar */
+        nav {
+            background: rgba(20, 30, 40, 0.9);
+            padding: 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: bold;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        /* Main container */
+        .container {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Glass card */
+        .card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 30px;
+
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+
+            transition: all 0.35s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.01);
+            background: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+        }
+
+        h2 {
+            color: #1f2d3d;
+            margin-top: 0;
+        }
+
+        p, a {
+            color: #1f2d3d;
+            font-size: 16px;
+            line-height: 1.6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+        }
+
+        ul li a {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        ul li a:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/aboutus">About</a>
+        <a href="/contactus">Contact</a>
+        <a href="/logout" onclick="return confirm('Do you want to logout?')">Logout</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Contact Us Section -->
+        <div class="card">
+            <h2>Contact Me</h2>
+            <p>Primary Email: piyushnegi310@gmail.com</p>
+            
+            <p>GitHub: <a href="https://github.com/piyush472" target="_blank">github.com/piyush472</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/piyushnegi777/" target="_blank">linkedin.com/in/piyushnegi777</a></p>
+
+
+            <p>🔱 Feel free to reach out via email or connect with me on GitHub or LinkedIn!</p>
+        </div>
+    </div>
+
+</body>
+</html>
