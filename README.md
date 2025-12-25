@@ -68,7 +68,7 @@
 
     * Session is created after successful login
 
-    - User can access dashboard only if logged in
+    * User can access dashboard only if logged in
 
 ---
 
