@@ -9,7 +9,6 @@
             margin: 0;
             min-height: 100vh;
             font-family: Arial, sans-serif;
-
             background: url("/static/img/3.jpg") no-repeat center center fixed;
             background-size: cover;
         }
@@ -25,24 +24,27 @@
             text-decoration: none;
             margin-right: 20px;
             font-weight: bold;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            background: rgba(255, 255, 255, 0.2);
         }
 
         /* Main container */
         .container {
             padding: 40px;
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
         }
 
         /* Glass cards */
         .card {
             background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(1px);
-            -webkit-backdrop-filter: blur(1px);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
 
             border-radius: 14px;
             padding: 25px;
@@ -50,6 +52,14 @@
 
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
             border: 1px solid rgba(255, 255, 255, 0.3);
+
+            transition: all 0.35s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.01);
+            background: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
         }
 
         h2 {
@@ -63,33 +73,18 @@
             line-height: 1.6;
         }
 
-        /* Hover effect for cards */
-        .card {
-            transition: all 0.35s ease;
+        /* Webcam styling */
+        .video-container {
+            text-align: center;
         }
 
-        .card:hover {
-            transform: translateY(-10px) scale(1.01);
-            background: rgba(255, 255, 255, 0.75);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+        .video-container img {
+            width: 100%;
+            max-width: 750px;
+            border-radius: 15px;
+            border: 3px solid #1f2d3d;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
-
-        nav a {
-    color: #ffffff;
-    text-decoration: none;
-    margin-right: 20px;
-    font-weight: bold;
-    padding: 6px 10px;
-    border-radius: 6px;
-
-    transition: all 0.3s ease;
-}
-
-nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
-
 
     </style>
 </head>
@@ -109,19 +104,25 @@ nav a:hover {
 
         <!-- Welcome Section -->
         <div class="card">
-            <h2>Welcome, {{ username }}🔱 </h2>
+            <h2>Welcome, {{ username }} 🔱</h2>
             <p>You have successfully logged in to your dashboard.</p>
         </div>
+
+        <!-- Account Info -->
         <div class="card">
-    
-    <p>You created your account on: {{ created_at }}</p>
-    <p>You have logged in {{ login_count }} times.</p>
-</div>
+            <p>You created your account on: {{ created_at }}</p>
+            <p>You have logged in {{ login_count }} times.</p>
+        </div>
 
+        <!-- Gesture Detection Section -->
+        <div class="card">
+            <h2>🎮 Gesture Detection Fun Mode</h2>
+            <p>Try different hand gestures in front of your webcam!</p>
 
-       
-
-       
+            <div class="video-container">
+                <img src="{{ url_for('video_feed') }}">
+            </div>
+        </div>
 
     </div>
 
